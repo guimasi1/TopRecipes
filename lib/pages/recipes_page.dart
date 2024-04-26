@@ -12,28 +12,39 @@ class RecipesPage extends StatefulWidget {
 class _RecipesPageState extends State<RecipesPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(
-          child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-            margin: EdgeInsets.only(top: 20),
-            child: Text(
-              "Your recipes",
-              style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 35,
-                  color: Colors.black),
+    return Scaffold(
+      backgroundColor: Colors.green[400],
+      floatingActionButton: ElevatedButton(
+        onPressed: () {},
+        style: ButtonStyle(
+          padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+        ),
+        child: Icon(
+          Icons.add,
+          color: Colors.black,
+          size: 32,
+          weight: 100.0,
+        ),
+      ),
+      body: Column(
+        children: [
+          Center(
+            child: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              margin: EdgeInsets.only(top: 20),
+              child: Text(
+                "Your recipes",
+                style: TextStyle(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 35,
+                    color: Colors.black),
+              ),
             ),
           ),
-        ),
-        ListView.builder(
-          itemBuilder: (context, index) {
-            return;
-          },
-        )
-      ],
+        ],
+      ),
     );
   }
 }
