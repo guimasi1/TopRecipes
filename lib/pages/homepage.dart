@@ -45,6 +45,9 @@ class _HomepageState extends State<Homepage> {
                 child: ListTile(
                   leading: Icon(Icons.home),
                   title: Text("H O M E"),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
                 ),
               ),
               Padding(
