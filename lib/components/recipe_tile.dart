@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:recipes_app/models/recipe.dart';
+import 'package:recipes_app/pages/recipe_details_page.dart';
 
 class RecipeTile extends StatelessWidget {
   final Recipe recipe;
@@ -30,49 +31,58 @@ class RecipeTile extends StatelessWidget {
             label: 'Delete',
           ),
         ]),
-        child: Card(
-          color: Colors.green[300],
-          elevation: 0,
-          child: Column(
-            children: <Widget>[
-              // ClipRRect(
-              //   borderRadius: BorderRadius.only(
-              //       topLeft: Radius.circular(10),
-              //       topRight: Radius.circular(10)),
-              //   child: Image(
-              //     image: NetworkImage(recipe.imageUrl),
-              //   ),
-              // ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        recipe.title,
-                        style: TextStyle(
-                            fontSize: 20, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        recipe.description,
-                        style: TextStyle(
-                          fontSize: 15,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RecipeDetailsPage(recipe: recipe),
+                ));
+          },
+          child: Card(
+            color: Colors.green[300],
+            elevation: 0,
+            child: Column(
+              children: <Widget>[
+                // ClipRRect(
+                //   borderRadius: BorderRadius.only(
+                //       topLeft: Radius.circular(10),
+                //       topRight: Radius.circular(10)),
+                //   child: Image(
+                //     image: NetworkImage(recipe.imageUrl),
+                //   ),
+                // ),
+                Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20, vertical: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          recipe.title,
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      SizedBox(
-                        height: 14,
-                      ),
-                    ],
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text(
+                          recipe.description,
+                          style: TextStyle(
+                            fontSize: 15,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 14,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

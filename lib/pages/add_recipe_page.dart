@@ -149,7 +149,7 @@ class _AddRecipePageState extends State<AddRecipePage> {
                   return ListTile(
                     title: Text(ingredientName),
                     trailing: Text(
-                      "$ingredientWeight grams",
+                      " $ingredientWeight grams",
                       style: TextStyle(fontSize: 15),
                     ),
                   );
