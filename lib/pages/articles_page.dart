@@ -56,7 +56,6 @@ class ArticlesPage extends StatelessWidget {
                           ),
                           Expanded(
                             child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
                               itemCount: value.getAllArticles().length,
                               itemBuilder: (BuildContext context, int index) {
                                 Article article = value.getAllArticles()[index];

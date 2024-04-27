@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:recipes_app/models/recipe.dart';
+import 'package:recipes_app/pages/homepage.dart';
+import 'package:recipes_app/pages/recipes_page.dart';
 import 'package:recipes_app/utils/boxes.dart';
 
 class AddRecipePage extends StatefulWidget {
@@ -160,7 +162,14 @@ class _AddRecipePageState extends State<AddRecipePage> {
                     padding: MaterialStatePropertyAll(
                         EdgeInsets.symmetric(horizontal: 40, vertical: 10)),
                     backgroundColor: MaterialStatePropertyAll(Colors.black)),
-                onPressed: saveRecipe,
+                onPressed: () {
+                  saveRecipe();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Homepage(),
+                      ));
+                },
                 child: Text(
                   "Save",
                   style: TextStyle(
