@@ -1,16 +1,13 @@
-# recipes_app
+# TopRecipes
 
-A new Flutter project.
+Application created with Flutter. 
 
-## Getting Started
+## Functionality
 
-This project is a starting point for a Flutter application.
+The user can write their recipes and save them inside the local storage. </br>
+There's also an articles section where the user can read articles about healthy food. 
 
-A few resources to get you started if this is your first Flutter project:
+## Dependencies 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Provider: to simplify the resources' allocation. 
+- Hive: to save the recipes inside the local storage.
