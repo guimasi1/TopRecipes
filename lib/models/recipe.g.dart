@@ -19,7 +19,7 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
     return Recipe(
       title: fields[0] as String,
       description: fields[1] as String,
-      ingredients: (fields[2] as HiveList).castHiveList(),
+      ingredientsList: (fields[4] as List).cast<dynamic>(),
       imageUrl: fields[3] as String,
     );
   }
@@ -32,10 +32,10 @@ class RecipeAdapter extends TypeAdapter<Recipe> {
       ..write(obj.title)
       ..writeByte(1)
       ..write(obj.description)
-      ..writeByte(2)
-      ..write(obj.ingredients)
       ..writeByte(3)
-      ..write(obj.imageUrl);
+      ..write(obj.imageUrl)
+      ..writeByte(4)
+      ..write(obj.ingredientsList);
   }
 
   @override

@@ -11,6 +11,7 @@ class RecipeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.yellow[600],
         title: Text(recipe.title),
         centerTitle: true,
       ),
@@ -18,7 +19,7 @@ class RecipeDetailsPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            if (recipe.imageUrl.isNotEmpty) Image.network(recipe.imageUrl),
+            // if (recipe.imageUrl.isNotEmpty) Image.network(recipe.imageUrl),
             SizedBox(height: 8),
             Padding(
               padding: EdgeInsets.all(25.0),

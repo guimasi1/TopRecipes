@@ -56,6 +56,7 @@ class ArticlesPage extends StatelessWidget {
                           ),
                           Expanded(
                             child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
                               itemCount: value.getAllArticles().length,
                               itemBuilder: (BuildContext context, int index) {
                                 Article article = value.getAllArticles()[index];
@@ -65,7 +66,7 @@ class ArticlesPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -74,7 +75,7 @@ class ArticlesPage extends StatelessWidget {
 
   AppBar appBar() {
     return AppBar(
-      backgroundColor: Colors.orange[400],
+      backgroundColor: Colors.yellow[600],
       title: Text(
         "ARTICLES",
         style: TextStyle(fontWeight: FontWeight.bold),

@@ -11,8 +11,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(IngredientAdapter());
   Hive.registerAdapter(RecipeAdapter());
+  boxIngredients = await Hive.openBox<Ingredient>("ingredientsBox");
   boxRecipes = await Hive.openBox<Recipe>('recipesBox');
-  boxProva = await Hive.openBox("mybox");
   runApp(const MyApp());
 }
 

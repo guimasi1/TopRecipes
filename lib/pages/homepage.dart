@@ -18,17 +18,7 @@ class _HomepageState extends State<Homepage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green[300],
-      appBar: AppBar(
-          backgroundColor: Colors.orange[400],
-          leading: Builder(
-            builder: (context) {
-              return IconButton(
-                  onPressed: () {
-                    Scaffold.of(context).openDrawer();
-                  },
-                  icon: Icon(Icons.menu));
-            },
-          )),
+      appBar: appBar(),
       body: _pages[selectedIndex],
       drawer: Drawer(
         backgroundColor: Colors.green[600],
@@ -80,5 +70,19 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
     );
+  }
+
+  AppBar appBar() {
+    return AppBar(
+        backgroundColor: Colors.yellow[600],
+        leading: Builder(
+          builder: (context) {
+            return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+                icon: Icon(Icons.menu));
+          },
+        ));
   }
 }
