@@ -57,10 +57,6 @@ class RecipeTile extends StatelessWidget {
                     SizedBox(
                       height: 14,
                     ),
-                    Text(recipe.date,
-                        style: TextStyle(
-                            color: Colors.grey[600],
-                            fontStyle: FontStyle.italic)),
                   ],
                 ),
               ),

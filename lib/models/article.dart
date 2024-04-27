@@ -5,13 +5,6 @@ class Article {
   final String imageUrl;
   String content;
 
-  Article.empty()
-      : title = '',
-        description = '',
-        date = '',
-        imageUrl = '',
-        content = '';
-
   Article(
       {required this.title,
       required this.description,

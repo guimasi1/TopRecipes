@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:recipes_app/models/articles_provider.dart';
+import 'package:recipes_app/models/ingredient.dart';
+import 'package:recipes_app/models/recipe.dart';
 import 'package:recipes_app/pages/intro_page.dart';
+import 'package:recipes_app/utils/boxes.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var box = await Hive.openBox("mybox");
+  Hive.registerAdapter(IngredientAdapter());
+  Hive.registerAdapter(RecipeAdapter());
+  boxRecipes = await Hive.openBox<Recipe>('recipesBox');
+  boxProva = await Hive.openBox("mybox");
   runApp(const MyApp());
 }
 

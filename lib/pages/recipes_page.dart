@@ -1,36 +1,25 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:recipes_app/database/database.dart';
+import 'package:recipes_app/pages/add_recipe_page.dart';
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key});
-
   @override
   State<RecipesPage> createState() => _RecipesPageState();
 }
 
 class _RecipesPageState extends State<RecipesPage> {
-  final _myBox = Hive.box("mybox");
-  RecipesDatabase db = RecipesDatabase();
-
-  @override
-  void initState() {
-    if (_myBox.get("RECIPES") == null) {
-      db.createInitialData();
-    } else {
-      db.loadData();
-    }
-    super.initState();
-  }
-
+  TextEditingController titleController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.green[400],
       floatingActionButton: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => AddRecipePage()));
+        },
         style: ButtonStyle(
           padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
         ),

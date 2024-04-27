@@ -24,14 +24,7 @@ class RecipeDetailsPage extends StatelessWidget {
               padding: EdgeInsets.all(25.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(recipe.date,
-                      style: TextStyle(
-                          color: Colors.grey[600],
-                          fontStyle: FontStyle.italic)),
-                  SizedBox(height: 10),
-                  Text(recipe.content, style: TextStyle(fontSize: 17)),
-                ],
+                children: <Widget>[Text(recipe.description)],
               ),
             ),
           ],
