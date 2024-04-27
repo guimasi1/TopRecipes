@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:recipes_app/database/database.dart';
 
 class RecipesPage extends StatefulWidget {
   const RecipesPage({super.key});
@@ -10,6 +12,19 @@ class RecipesPage extends StatefulWidget {
 }
 
 class _RecipesPageState extends State<RecipesPage> {
+  final _myBox = Hive.box("mybox");
+  RecipesDatabase db = RecipesDatabase();
+
+  @override
+  void initState() {
+    if (_myBox.get("RECIPES") == null) {
+      db.createInitialData();
+    } else {
+      db.loadData();
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

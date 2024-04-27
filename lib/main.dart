@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:recipes_app/models/articles_provider.dart';
 import 'package:recipes_app/pages/intro_page.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var box = await Hive.openBox("mybox");
   runApp(const MyApp());
 }
 
