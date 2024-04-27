@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:recipes_app/components/recipe_tile.dart';
 import 'package:recipes_app/models/recipe.dart';
 import 'package:recipes_app/pages/add_recipe_page.dart';
@@ -14,6 +16,11 @@ class RecipesPage extends StatefulWidget {
 
 class _RecipesPageState extends State<RecipesPage> {
   TextEditingController titleController = TextEditingController();
+
+  void deleteRecipe(index) {
+    boxRecipes.deleteAt(index);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,14 +53,23 @@ class _RecipesPageState extends State<RecipesPage> {
                 ),
               ),
             ),
-            Expanded(
-                child: ListView.builder(
-              itemCount: boxRecipes.length,
-              itemBuilder: (context, index) {
-                Recipe recipe = boxRecipes.getAt(index);
-                return RecipeTile(recipe: recipe);
-              },
-            ))
+            ValueListenableBuilder<Box>(
+                valueListenable: boxRecipes.listenable(),
+                builder: (context, box, widget) {
+                  return Expanded(
+                      child: ListView.builder(
+                    itemCount: boxRecipes.length,
+                    itemBuilder: (context, index) {
+                      Recipe recipe = boxRecipes.getAt(index);
+                      return RecipeTile(
+                        recipe: recipe,
+                        deleteRecipe: (context) {
+                          deleteRecipe(index);
+                        },
+                      );
+                    },
+                  ));
+                })
           ],
         ),
       ),
